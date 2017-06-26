@@ -1,0 +1,9 @@
+//theme mixin
+
+@mixin theme($color: white, $backColor: black) {
+  $header-background-color: $backColor;
+  $header-text-color: $color;
+  $header-hover-color: $backColor * 0.5;
+
+  background: $header-background-color;
+}

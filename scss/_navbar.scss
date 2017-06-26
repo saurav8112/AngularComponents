@@ -1,0 +1,95 @@
+.content-body{
+  height: calc(100vh - 74px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top:74px;
+  padding:10px;
+}
+.toggle-menu {
+  max-width:360px;
+
+  i{
+    float: left;
+    width: 40px;
+    font-size: 30px;
+    text-align: center;
+    margin: 18px 10px;
+
+  }
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  min-height: 50px;
+  margin-bottom: 0px;
+  overflow: hidden;
+  @include radius(0);
+  @include box-shadow (0 5px 14px rgba(153, 153, 153, 0.77));
+  .navbar-brand {
+    img {
+      display: inline-block;
+      height: 60px;
+      margin-top: 8px;
+
+    }
+    float: none;
+    padding-left: 0px;
+  }
+}
+
+.navbar-left-align {
+  position: fixed;
+  @include box-shadow (5px 0 10px rgba(153, 153, 153, 0.77));
+  top:70px;
+  bottom:0;
+  width:300px;
+  background: white;
+  z-index: 10000000;
+  transition: all .3s ease-in-out;
+  &.showMenu {
+    left:0px;
+  }
+  &.hideMenu {
+    left:-300px;
+  }
+  ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+    font-size: 18px;
+    height: 100%;
+    overflow-y: auto;
+
+    li{
+      &.nav-active{
+        background: orangered;
+        span {
+          color:white;
+        }
+
+      }
+      span{
+        padding: 10px;
+        color:black;
+        display: block;
+        transition: all .3s ease-in-out;
+        &:hover{
+          background: orangered;
+          color:white;
+        }
+      }
+      .close-menu{
+        position: absolute;
+        right: 10px;
+        top:12px;
+        font-size: 24px;
+        color:white;
+
+      }
+    }
+  }
+
+}

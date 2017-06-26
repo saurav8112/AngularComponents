@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default" role="navigation" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" >
+        <button ng-if="$ctrl.navigationType == 'basic'" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="toggle-menu" ng-if="$ctrl.navigationType == 'custom'">
+            <i class="fa fa-bars" ng-click="$ctrl.showMenu = !$ctrl.showMenu"></i>
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.jpg">
+            </a>
+        </div>
+        
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse" ng-if="$ctrl.navigationType == 'basic'" ng-show="$ctrl.showMenu">
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-class="{'nav-active': $ctrl.activeNav == 'home'}"><a ng-click="$ctrl.navigateTo('home')">Home</a></li>
+            <li ng-class="{'nav-active': $ctrl.activeNav == 'service'}"><a ng-click="$ctrl.navigateTo('service')">Service</a></li>
+            <li ng-class="{'nav-active': $ctrl.activeNav == 'contact'}"><a ng-click="$ctrl.navigateTo('contact')">Contact</a></li>
+        </ul>
+    </div>
+    <div class="{{$ctrl.navbarClass}}" ng-class="{'showMenu' : $ctrl.showMenu, 'hideMenu': !$ctrl.showMenu}" ng-if="$ctrl.navigationType == 'custom'">
+        <ul>
+            <!--<li>
+            <div  class="close-menu" ng-click="$ctrl.showMenu = !$ctrl.showMenu"><i class="fa fa-times"></i></div>
+        </li>-->
+            <li ng-class="{'nav-active': $ctrl.activeNav == 'home'}"><span ng-click="$ctrl.navigateTo('home')">Home</span></li>
+            <li ng-class="{'nav-active': $ctrl.activeNav == 'service'}"><span ng-click="$ctrl.navigateTo('service')">Service</span></li>
+            <li ng-class="{'nav-active': $ctrl.activeNav == 'contact'}"><span ng-click="$ctrl.navigateTo('contact')">Contact</span></li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>

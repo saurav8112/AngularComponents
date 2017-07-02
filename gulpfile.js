@@ -27,7 +27,7 @@ gulp.task('cssLib', function() {
             "./node_modules/bootstrap/dist/css/bootstrap.css",
             '/node_modules/angular-material/angular-material.css',
             "./node_modules/animate.css/animate.css",
-            "./libs/_w3-css.scss"
+            "./libs/*.scss"
         ])
         .pipe(sass()).on('error', sass.logError)
         .pipe(concat("bundle.css"))

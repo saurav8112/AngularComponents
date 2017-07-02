@@ -3,7 +3,8 @@ var app = angular.module("SNS", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "./templates/ComponentLibrary.html",
+            templateUrl: "./templates/pages/tableExample.html",
+            controller: 'homeCtrl',
         })
         .when("/home", {
             templateUrl: "./templates/pages/home.html",

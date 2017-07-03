@@ -1,5 +1,15 @@
 <div class="container-fluid " ng-init="$ctrl.sortReverse = false">
-    <div class="col-sm-4 col-sm-offset-8">
+    <div class="col-sm-2 col-sm-offset-7">
+    	<select ng-model="$ctrl.viewVal" ng-change="$ctrl.viewPerPageChanged()">
+    		<option ng-value="10">10</option>
+    		<option ng-value="20">20</option>
+    		<option ng-value="30">30</option>
+    		<option ng-value="50">50</option>
+    		<option ng-value="$ctrl.tableData.length">All</option>
+    	</select>
+    </div>
+    <div class="col-sm-3">
+
         <input type="text" class="form-control" placeholder="search here..." ng-change="$ctrl.goToPage(1)" ng-model="$ctrl.searchInTableData">
     </div>
     <table class="table table-hover">
@@ -25,12 +35,13 @@
         </tbody>
     </table>
     <div class="col-sm-4 col-sm-offset-8 btn-group">
-        <button class="fa fa-angle-double-left btn btn-default" 
+        <button class="fa fa-angle-double-left btn btn-default"
+        		ng-disabled="$ctrl.currentPage == 1" 
         		ng-click="$ctrl.goToPage(1)">		
         </button>
         <button class="fa fa-arrow-left btn btn-default" 
-        		ng-disabled="$ctrl.range.start - 10 < 1" 
-        		ng-click="$ctrl.range.end =  $ctrl.range.end - 10; $ctrl.range.start = $ctrl.range.start - 10">		
+        		ng-disabled="$ctrl.currentPage == 1" 
+        		ng-click="$ctrl.goToPage($ctrl.currentPage-1)">		
         </button>
         <button ng-if="($ctrl.range.end/$ctrl.range.viewPerPage) - 1 > 0" 
         		ng-click="$ctrl.goToPage(($ctrl.range.end/$ctrl.range.viewPerPage) - 1)"
@@ -44,10 +55,11 @@
 		</button>
 
         <button class="fa fa-arrow-right btn btn-default" 
-        		ng-disabled="$ctrl.range.end + 10 > $ctrl.tableData.length" 
-        		ng-click="$ctrl.range.end =  $ctrl.range.end + 10; $ctrl.range.start = $ctrl.range.start + 10">
+        		ng-disabled="$ctrl.range.end + $ctrl.range.viewPerPage > $ctrl.tableData.length" 
+        		ng-click="$ctrl.goToPage($ctrl.currentPage+1)">
         </button>
         <button class="fa fa fa-angle-double-right btn btn-default" 
+        		ng-disabled="$ctrl.range.end + $ctrl.range.viewPerPage > $ctrl.tableData.length" 
         		ng-click="$ctrl.goToPage($ctrl.tableData.length/$ctrl.range.viewPerPage)">
         </button>
     </div>

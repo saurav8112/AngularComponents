@@ -1,2 +1,2 @@
 # AngularTemplates
-Templates made purely in anglur 1 
+Templates made purely in angular 1 

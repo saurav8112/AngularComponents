@@ -2,7 +2,7 @@ function homeController($scope, dummyService) {
     $scope.labels = {
     	hide: ['id', 'ip_address']
     }
-    $scope.tableData = dummyService.dummyDataGenerator(20);
+    $scope.tableData = dummyService.dummyDataGenerator(60);
     $scope.actionButtons = [{
     	actionName: 'Delete',
     	class: 'fa-trash-o'
